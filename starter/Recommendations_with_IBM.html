@@ -8444,6 +8444,13 @@ dtype: float64</pre>
 <span class="c1"># Run this cell to map the user email to a user_id column and remove the email column</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">email_mapper</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    INPUT:</span>
+<span class="sd">    df - (pandas dataframe) interactions with an `email` column (nulls already filled)</span>
+
+<span class="sd">    OUTPUT:</span>
+<span class="sd">    user_ids - (list) one integer id per row, numbered from 1 in order of first appearance of each email</span>
+<span class="sd">    """</span>
     <span class="n">coded_dict</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">email</span><span class="p">:</span> <span class="n">num</span> 
         <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">email</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
