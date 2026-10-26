@@ -1,12 +1,7 @@
 import pandas as pd
-import numpy as np
 import pickle
 
 df = pd.read_csv('data/user-item-interactions.csv')
-df_content = pd.read_csv('data/articles_community.csv')
-del df['Unnamed: 0']
-del df_content['Unnamed: 0']
-
 
 def sol_1_test(sol_1_dict):
     sol_1_dict_ = {
@@ -14,10 +9,10 @@ def sol_1_test(sol_1_dict):
     '`The total number of user-article interactions in the dataset is ______.`': 45993,
     '`The maximum number of user-article interactions by any 1 user is ______.`': 364,
     '`The most viewed article in the dataset was viewed _____ times.`': 937,
-    '`The article_id of the most viewed article is ______.`': '1429.0',
+    '`The article_id of the most viewed article is ______.`': 1429,
     '`The number of unique articles that have at least 1 rating ______.`': 714,
-    '`The number of unique users in the dataset is ______`': 5148,
-    '`The number of unique articles on the IBM platform`': 1051,
+    '`The number of unique users in the dataset is ______`': 5149,
+    '`The number of unique articles on the IBM platform`': 714,
     }
     
     if sol_1_dict_ == sol_1_dict:
@@ -46,14 +41,15 @@ def sol_2_test(top_articles):
 def sol_5_test(sol_5_dict):
     sol_5_dict_1 = {
     'The user that is most similar to user 1.': 3933, 
-    'The user that is the 10th most similar to user 131': 242
+    'The user that is the 6th most similar to user 2.': 3586,
+    'The user that is the 10th most similar to user 131.': 383
     }
     if sol_5_dict == sol_5_dict_1:
         print("This all looks good!  Nice job!")
         
     else:
         for k, v in sol_5_dict_1.items():
-            if set(sol_5_dict[k]) != set(sol_5_dict_1[k]):
+            if sol_5_dict[k] != sol_5_dict_1[k]:
                 print("Oops!  Looks like there is a mistake with the {} key in your dictionary.  The answer should be {}.  Try again.".format(k,v))
     
     

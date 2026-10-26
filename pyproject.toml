@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ibm-recommender"
+version = "0.1.0"
+description = "Rank, user-user CF, content-based and SVD recommenders for IBM Watson Studio articles"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas", "scikit-learn"]
+
+[project.optional-dependencies]
+web = ["flask"]
+test = ["pytest"]
+
+[tool.setuptools]
+packages = ["ibm_recommender"]
